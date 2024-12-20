@@ -6,14 +6,14 @@
 }
 
 .otp-form input {
+  width: 500px;
   margin-bottom: 12px;
+  margin-right: 10px;
   padding: 10px;
-  width: 100%;
   font-size: 16px;
 }
 
 .otp-form button {
-  width: 100%;
   padding: 10px;
   background-color: #28a745;
   color: white;

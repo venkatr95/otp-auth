@@ -6,14 +6,14 @@
 }
 
 .login-form input {
+  width: 500px;
   margin-bottom: 12px;
+  margin-right: 10px;
   padding: 10px;
-  width: 100%;
   font-size: 16px;
 }
 
 .login-form button {
-  width: 100%;
   padding: 10px;
   background-color: #007bff;
   color: white;

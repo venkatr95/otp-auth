@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import { requestOtp } from "../services/authService";
 import { toast } from "react-toastify";
-import "./LoginForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   setEmail: (email: string) => void;
-  setStep: (step: number) => void;
 }
 
-const LoginForm: React.FC<Props> = ({ setEmail, setStep }) => {
+const LoginForm: React.FC<Props> = ({ setEmail }) => {
   const [emailInput, setEmailInput] = useState("");
+  const navigate = useNavigate();
 
   const handleRequestOtp = async () => {
     try {
       await requestOtp(emailInput);
-      toast.success("OTP sent to your email");
+      toast.success("OTP sent to your email", {
+        autoClose: 2000, // Toast will close after 2 second
+      });
       setEmail(emailInput);
-      setStep(2); // Move to OTP form step
+      setTimeout(() => {
+        navigate("/otp");
+      }, 3000);
     } catch (error) {
       toast.error("Failed to send OTP");
     }
